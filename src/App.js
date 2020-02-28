@@ -2,6 +2,8 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import ReactDOM from 'react-dom';
+import Drawing from './components/Drawing';
+import DrawingLine from './components/DrawingLine';
 import { List, Map } from 'immutable';
 
 class App extends React.Component {
@@ -75,27 +77,6 @@ class App extends React.Component {
       </div>
     );
   }
-}
-
-function Drawing({ lines }) {
-  return (
-    <svg className="drawing">
-      {lines.map((line, index) => (
-        <DrawingLine key={index} line={line} />
-      ))}
-    </svg>
-  );
-}
-
-function DrawingLine({ line }) {
-  const pathData = "M " +
-    line
-      .map(p => {
-        return `${p.get('x')} ${p.get('y')}`;
-      })
-      .join(" L ");
-
-  return <path className="path" d={pathData} />;
 }
 
 ReactDOM.render(<App />, document.getElementById("root"));
