@@ -13,7 +13,7 @@ body {
 
 .path {
   fill: none;
-  stroke-width: 1px;
+  stroke-width: 4px;
   stroke: black;
   stroke-linejoin: round;
   stroke-linecap: round;
