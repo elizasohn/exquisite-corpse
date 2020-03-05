@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import DrawingLine from './DrawingLine';
+import DrawingLine from "./DrawingLine";
 
 function Drawing({ lines }) {
   return (

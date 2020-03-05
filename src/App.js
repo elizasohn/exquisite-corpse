@@ -1,20 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import ReactDOM from 'react-dom';
-import Drawing from './components/Drawing';
-import DrawingLine from './components/DrawingLine';
-import { List, Map } from 'immutable';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import ReactDOM from "react-dom";
+import Drawing from "./components/Drawing";
+import DrawingLine from "./components/DrawingLine";
+import { connect } from "react-redux";
 
 class App extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
-      lines: new List,
+      lines: [],
       isDrawing: false
     };
 
+    this.handleColorChange = this.handleColorChange.bind(this);
     this.handleMouseDown = this.handleMouseDown.bind(this);
     this.handleMouseMove = this.handleMouseMove.bind(this);
     this.handleMouseUp = this.handleMouseUp.bind(this);
@@ -36,7 +37,7 @@ class App extends React.Component {
     const point = this.relativeCoordinatesForEvent(mouseEvent);
 
     this.setState(prevState => ({
-      lines: prevState.lines.push(new List([point])),
+      lines: [...prevState.lines, { color: this.props.color, points: [point] }],
       isDrawing: true
     }));
   }
@@ -48,32 +49,51 @@ class App extends React.Component {
 
     const point = this.relativeCoordinatesForEvent(mouseEvent);
 
-    this.setState(prevState =>  ({
-      lines: prevState.lines.updateIn([prevState.lines.size - 1], line => line.push(point))
-    }));
+    this.setState(prevState => {
+      const safeLines = [...prevState.lines];
+      safeLines[safeLines.length - 1].points = [
+        ...safeLines[safeLines.length - 1].points
+      ];
+      safeLines[safeLines.length - 1].points.push(point);
+      return {
+        color: this.props.color,
+        lines: safeLines
+      };
+    });
   }
 
   handleMouseUp() {
     this.setState({ isDrawing: false });
   }
 
+  handleColorChange(color) {
+    this.props.dispatch({
+      type: "CHANGE_COLOR",
+      color: color
+    });
+  }
+
   relativeCoordinatesForEvent(mouseEvent) {
     const boundingRect = this.refs.drawArea.getBoundingClientRect();
-    return new Map({
+    return {
       x: mouseEvent.clientX - boundingRect.left,
-      y: mouseEvent.clientY - boundingRect.top,
-    });
+      y: mouseEvent.clientY - boundingRect.top
+    };
   }
 
   render() {
     return (
-      <div
-        className="drawArea"
-        ref="drawArea"
-        onMouseDown={this.handleMouseDown}
-        onMouseMove={this.handleMouseMove}
-      >
-        <Drawing lines={this.state.lines} />
+      <div className="container">
+        <button onClick={() => this.handleColorChange("black")}>Black</button>
+        <button onClick={() => this.handleColorChange("red")}>Red</button>
+        <div
+          className="drawArea"
+          ref="drawArea"
+          onMouseDown={this.handleMouseDown}
+          onMouseMove={this.handleMouseMove}
+        >
+          <Drawing lines={this.state.lines} />
+        </div>
       </div>
     );
   }
@@ -81,5 +101,8 @@ class App extends React.Component {
 
 ReactDOM.render(<App />, document.getElementById("root"));
 
+const mapStateToProps = state => ({
+  color: state.color
+});
 
-export default App;
+export default connect(mapStateToProps)(App);
