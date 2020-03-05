@@ -154,7 +154,9 @@ class App extends React.Component {
         <button onClick={() => this.handleColorChange("blue")}>Blue</button>
         <button onClick={() => this.handleColorChange("purple")}>Purple</button>
         <button onClick={() => this.handleColorChange("pink")}>Pink</button>
+        <button onClick={() => this.handleColorChange("white")}>Erase</button>
         <button onClick={() => this.undoLine()}>Undo</button>
+        <button id="showDrawing">Show Drawing</button>
 
         <div
           className="drawArea"
@@ -163,6 +165,8 @@ class App extends React.Component {
           onMouseMove={this.handleMouseMove}
         >
           <Drawing lines={this.state.lines} />
+        </div>
+        <div className="result">
         </div>
       </div>
     );
