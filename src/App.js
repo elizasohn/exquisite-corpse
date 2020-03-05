@@ -5,7 +5,7 @@ import ReactDOM from "react-dom";
 import Drawing from "./components/Drawing";
 import { connect } from "react-redux";
 
-const App = class extends React.Component {
+class App extends React.Component {
   constructor(props) {
     super(props);
 
@@ -18,8 +18,8 @@ const App = class extends React.Component {
     this.handleMouseDown = this.handleMouseDown.bind(this);
     this.handleMouseMove = this.handleMouseMove.bind(this);
     this.handleMouseUp = this.handleMouseUp.bind(this);
+    this.undoLine = this.undoLine.bind(this);
 
-    this.canvas = React.createRef();
   }
 
   componentDidMount() {
@@ -56,6 +56,8 @@ const App = class extends React.Component {
         ...safeLines[safeLines.length - 1].points
       ];
       safeLines[safeLines.length - 1].points.push(point);
+      console.log(safeLines);
+      
       return {
         color: this.props.color,
         lines: safeLines
@@ -74,6 +76,21 @@ const App = class extends React.Component {
     });
   }
 
+  undoLine() {
+    if (this.state.lines === [] ) {
+      return;
+    }
+
+    this.setState(prevState => {
+      const safeLines = [...prevState.lines];
+      safeLines.pop();
+      return {
+        color: this.props.color,
+        lines: safeLines
+      }
+    });
+  }
+
   relativeCoordinatesForEvent(mouseEvent) {
     const boundingRect = this.refs.drawArea.getBoundingClientRect();
     return {
@@ -85,14 +102,50 @@ const App = class extends React.Component {
   // exportImage(imageType) {
   //   return new Promise((resolve, reject) => {
   //     try {
-  //       const canvas = this.
+  //       console.log(document.getElementsByClassName("drawing")[0].innerHTML);
+  //       const drawArea = document.getElementsByClassName("drawing")[0];
+
+  //       const img = document.createElement('img');
+  //       img.src = `data:image/svg+xml;base64,${btoa(document.getElementsByClassName("drawing")[0].innerHTML)}`;
+
+  //       img.onload = () => {
+  //         const renderDrawArea = document.createElement('svg');
+  //         renderDrawArea.setAttribute('width', drawArea.offsetWidth);
+  //         console.log(drawArea.offsetWidth);
+  //         renderDrawArea.setAttribute('height', drawArea.offsetHeight);
+  //         renderDrawArea.getContext('2d').drawImage(img, 0, 0);
+
+  //         resolve(renderDrawArea.toDataURL(`image/${imageType}`));
+  //       };
+  //     } catch (e) {
+  //       reject(e);
   //     }
-  //   })
+  //   });
   // }
 
+  // exportSvg() {
+  //   return new Promise((resolve, reject) => {
+  //     try {
+  //       resolve(document.getElementsByClassName("drawing")[0].innerHTML);
+  //     }
+  //     } catch (e) {
+  //       reject(e);
+  //     }
+  //   });
+  // }
   render() {
     return (
       <div className="container">
+      {/* <button onClick={() => this.drawArea.current.innerHTML
+      .exportSvg()
+      .then(data => {
+      console.log(data);
+      })
+      .catch(e => {
+      console.log(e);
+      })
+      }
+     >Get Image</button> */}
         <button onClick={() => this.handleColorChange("black")}>Black</button>
         <button onClick={() => this.handleColorChange("red")}>Red</button>
         <button onClick={() => this.handleColorChange("orange")}>Orange</button>
@@ -101,6 +154,8 @@ const App = class extends React.Component {
         <button onClick={() => this.handleColorChange("blue")}>Blue</button>
         <button onClick={() => this.handleColorChange("purple")}>Purple</button>
         <button onClick={() => this.handleColorChange("pink")}>Pink</button>
+        <button onClick={() => this.undoLine()}>Undo</button>
+
         <div
           className="drawArea"
           ref="drawArea"

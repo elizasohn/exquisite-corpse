@@ -12,7 +12,6 @@ const Path = styled.path`
 `;
 
 function DrawingLine({ line }) {
-  console.log(line.color);
   const pathData =
     "M " +
     line.points
