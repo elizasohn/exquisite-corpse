@@ -3,10 +3,9 @@ import logo from "./logo.svg";
 import "./App.css";
 import ReactDOM from "react-dom";
 import Drawing from "./components/Drawing";
-import DrawingLine from "./components/DrawingLine";
 import { connect } from "react-redux";
 
-class App extends React.Component {
+const App = class extends React.Component {
   constructor(props) {
     super(props);
 
@@ -19,6 +18,8 @@ class App extends React.Component {
     this.handleMouseDown = this.handleMouseDown.bind(this);
     this.handleMouseMove = this.handleMouseMove.bind(this);
     this.handleMouseUp = this.handleMouseUp.bind(this);
+
+    this.canvas = React.createRef();
   }
 
   componentDidMount() {
@@ -81,11 +82,25 @@ class App extends React.Component {
     };
   }
 
+  // exportImage(imageType) {
+  //   return new Promise((resolve, reject) => {
+  //     try {
+  //       const canvas = this.
+  //     }
+  //   })
+  // }
+
   render() {
     return (
       <div className="container">
         <button onClick={() => this.handleColorChange("black")}>Black</button>
         <button onClick={() => this.handleColorChange("red")}>Red</button>
+        <button onClick={() => this.handleColorChange("orange")}>Orange</button>
+        <button onClick={() => this.handleColorChange("yellow")}>Yellow</button>
+        <button onClick={() => this.handleColorChange("green")}>Green</button>
+        <button onClick={() => this.handleColorChange("blue")}>Blue</button>
+        <button onClick={() => this.handleColorChange("purple")}>Purple</button>
+        <button onClick={() => this.handleColorChange("pink")}>Pink</button>
         <div
           className="drawArea"
           ref="drawArea"
