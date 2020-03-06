@@ -91,6 +91,24 @@ class App extends React.Component {
     });
   }
 
+  reset() {
+    if (this.state.lines === [] ) {
+      return;
+    }
+
+    this.setState(prevState => {
+      const safeLines = [];
+
+      return {
+        color: this.props.color,
+        lines: safeLines
+      }
+    });
+  }
+
+
+
+
   relativeCoordinatesForEvent(mouseEvent) {
     const boundingRect = this.refs.drawArea.getBoundingClientRect();
     return {
@@ -156,6 +174,7 @@ class App extends React.Component {
         <button onClick={() => this.handleColorChange("pink")}>Pink</button>
         <button onClick={() => this.handleColorChange("white")}>Erase</button>
         <button onClick={() => this.undoLine()}>Undo</button>
+        <button onClick={() => this.reset()}>Reset</button>
         <button id="showDrawing">Show Drawing</button>
 
         <div
