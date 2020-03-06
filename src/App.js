@@ -15,6 +15,7 @@ class App extends React.Component {
     };
 
     this.handleColorChange = this.handleColorChange.bind(this);
+    this.handleStrokeChange = this.handleStrokeChange.bind(this);
     this.handleMouseDown = this.handleMouseDown.bind(this);
     this.handleMouseMove = this.handleMouseMove.bind(this);
     this.handleMouseUp = this.handleMouseUp.bind(this);
@@ -38,7 +39,7 @@ class App extends React.Component {
     const point = this.relativeCoordinatesForEvent(mouseEvent);
 
     this.setState(prevState => ({
-      lines: [...prevState.lines, { color: this.props.color, points: [point] }],
+      lines: [...prevState.lines, { color: this.props.color, stroke: this.props.stroke, points: [point] }],
       isDrawing: true
     }));
   }
@@ -60,6 +61,7 @@ class App extends React.Component {
       
       return {
         color: this.props.color,
+        stroke: this.props.stroke,
         lines: safeLines
       };
     });
@@ -76,6 +78,13 @@ class App extends React.Component {
     });
   }
 
+  handleStrokeChange(stroke) {
+    this.props.dispatch({
+      type: "CHANGE_STROKE",
+      stroke: stroke
+    });
+  }
+
   undoLine() {
     if (this.state.lines === [] ) {
       return;
@@ -86,6 +95,7 @@ class App extends React.Component {
       safeLines.pop();
       return {
         color: this.props.color,
+        stroke: this.props.stroke,
         lines: safeLines
       }
     });
@@ -101,6 +111,7 @@ class App extends React.Component {
 
       return {
         color: this.props.color,
+        stroke: this.props.stroke,
         lines: safeLines
       }
     });
@@ -175,6 +186,9 @@ class App extends React.Component {
         <button onClick={() => this.handleColorChange("white")}>Erase</button>
         <button onClick={() => this.undoLine()}>Undo</button>
         <button onClick={() => this.reset()}>Reset</button>
+        <button onClick={() => this.handleStrokeChange("2px")}>Small</button>
+        <button onClick={() => this.handleStrokeChange(4)}>Medium</button>
+        <button onClick={() => this.handleStrokeChange(8)}>Large</button>
         <button id="showDrawing">Show Drawing</button>
 
         <div
@@ -195,7 +209,8 @@ class App extends React.Component {
 ReactDOM.render(<App />, document.getElementById("root"));
 
 const mapStateToProps = state => ({
-  color: state.color
+  color: state.colorChangerReducer.color,
+  stroke: state.strokeChangerReducer.stroke
 });
 
 export default connect(mapStateToProps)(App);

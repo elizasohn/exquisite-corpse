@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 
 const Path = styled.path`
   fill: none;
-  stroke-width: 10px;
+  stroke-width: ${props => props.currentStroke || "10px"};
   stroke: ${props => props.currentColor || "green"};
   stroke-linejoin: round;
   stroke-linecap: round;
@@ -20,7 +20,7 @@ function DrawingLine({ line }) {
       })
       .join(" L ");
 
-  return <Path currentColor={line.color} d={pathData} />;
+  return <Path currentColor={line.color} currentStroke={line.stroke} d={pathData} />;
 }
 
 export default DrawingLine;

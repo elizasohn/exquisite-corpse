@@ -5,10 +5,10 @@ import App from "./App";
 import { List, Map } from "immutable";
 import * as serviceWorker from "./serviceWorker";
 import { Provider } from "react-redux";
-import reducer from "./reducers/ColorChangerReducer";
+import rootReducer from "./reducers/index";
 import { createStore } from "redux";
 
-const store = createStore(reducer);
+const store = createStore(rootReducer);
 
 ReactDOM.render(
   <Provider store={store}>
