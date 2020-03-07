@@ -186,7 +186,7 @@ class App extends React.Component {
         <button onClick={() => this.handleStrokeChange(8)}>Small</button>
         <button onClick={() => this.handleStrokeChange(16)}>Medium</button>
         <button onClick={() => this.handleStrokeChange(24)}>Large</button>
-        <button id="showDrawing">Show Drawing</button>
+        // <button id="showDrawing">Show Drawing</button>
 
         <div
           className="drawArea"
