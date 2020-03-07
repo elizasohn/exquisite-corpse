@@ -10,10 +10,9 @@ export default (state = initialState, action) => {
         return state;
     }
   };
-  
+
   const initialState = {
     color: "black",
-    stroke: 4,
+    stroke: 16,
     drawing: []
   };
-  

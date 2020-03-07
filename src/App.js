@@ -58,7 +58,7 @@ class App extends React.Component {
       ];
       safeLines[safeLines.length - 1].points.push(point);
       console.log(safeLines);
-      
+
       return {
         color: this.props.color,
         stroke: this.props.stroke,
@@ -116,9 +116,6 @@ class App extends React.Component {
       }
     });
   }
-
-
-
 
   relativeCoordinatesForEvent(mouseEvent) {
     const boundingRect = this.refs.drawArea.getBoundingClientRect();
@@ -186,9 +183,9 @@ class App extends React.Component {
         <button onClick={() => this.handleColorChange("white")}>Erase</button>
         <button onClick={() => this.undoLine()}>Undo</button>
         <button onClick={() => this.reset()}>Reset</button>
-        <button onClick={() => this.handleStrokeChange("2px")}>Small</button>
-        <button onClick={() => this.handleStrokeChange(4)}>Medium</button>
-        <button onClick={() => this.handleStrokeChange(8)}>Large</button>
+        <button onClick={() => this.handleStrokeChange(8)}>Small</button>
+        <button onClick={() => this.handleStrokeChange(16)}>Medium</button>
+        <button onClick={() => this.handleStrokeChange(24)}>Large</button>
         <button id="showDrawing">Show Drawing</button>
 
         <div
