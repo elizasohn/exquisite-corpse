@@ -10,6 +10,7 @@ body {
   border-radius: 10px;
   float: left;
   cursor: crosshair;
+  z-index: 1;
 }
 .drawArea2 {
   width: 400px;
@@ -31,4 +32,9 @@ body {
 .drawing {
   width: 100%;
   height: 100%;
+}
+.toolbar {
+  z-index: 2;
+  padding: 30px;
+  margin: 10px;
 }
