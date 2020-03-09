@@ -3,6 +3,9 @@ body {
   margin: 20px;
 }
 
+/* .container {
+  text-align: center;
+} */
 .drawArea {
   width: 800px;
   height: 800px;
@@ -40,7 +43,8 @@ body {
   position: absolute;
   width: 100%;
   z-index: 1;
-  padding: 50px;
+  padding-top: 100px;
+  padding-bottom: 100px;
   background-color: lightgray;
   top: 0px;
 }
@@ -49,7 +53,7 @@ body {
   position: absolute;
   width: 100%;
   z-index: 1;
-  padding: 200px;
+  height: 200px;
   background-color: lightgray;
   bottom: 0px;
 }
