@@ -18,7 +18,8 @@ class App extends React.Component {
 
     this.state = {
       lines: [],
-      isDrawing: false
+      isDrawing: false,
+      drawArea: 0,
     };
 
     this.handleColorChange = this.handleColorChange.bind(this);
@@ -29,7 +30,17 @@ class App extends React.Component {
 
   }
 
-  attachEventsToDrawArea(drawArea) {
+  // attachEventsToDrawArea(drawArea) {
+
+  handleChangeDrawArea(drawArea) {
+    this.setState(prevState => {
+      const nextDrawArea = (this.state.drawArea + 1);
+      return {
+      lines: [],
+      isDrawing: true,
+      drawArea: nextDrawArea,
+    };
+  });
 
   }
 
@@ -208,6 +219,7 @@ class App extends React.Component {
         </div>
 
         <div className="footer">
+        <button onClick={() => this.handleChangeDrawArea(1)}>Next Player</button>
         </div>
       </div>
     );
