@@ -8,9 +8,11 @@ body {
   height: 800px;
   border: 2px solid black;
   border-radius: 10px;
-  float: left;
   cursor: crosshair;
-  z-index: 1;
+  z-index: -1;
+  position: absolute;
+  top: -200px;
+  bottom: 0;
 }
 .drawArea2 {
   width: 400px;
@@ -33,8 +35,12 @@ body {
   width: 100%;
   height: 100%;
 }
+
 .toolbar {
-  z-index: 2;
-  padding: 30px;
-  margin: 10px;
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+  padding: 50px;
+  background-color: white;
+  top: 0px;
 }
