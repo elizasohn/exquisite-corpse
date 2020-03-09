@@ -26,7 +26,6 @@ class App extends React.Component {
     this.handleMouseDown = this.handleMouseDown.bind(this);
     this.handleMouseMove = this.handleMouseMove.bind(this);
     this.handleMouseUp = this.handleMouseUp.bind(this);
-    this.undoLine = this.undoLine.bind(this);
 
   }
 
