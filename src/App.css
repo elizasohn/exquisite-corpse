@@ -44,3 +44,12 @@ body {
   background-color: white;
   top: 0px;
 }
+
+.footer {
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+  padding: 200px;
+  background-color: white;
+  bottom: 0px;
+}

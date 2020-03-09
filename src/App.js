@@ -207,7 +207,7 @@ class App extends React.Component {
           <Drawing lines={this.state.lines} />
         </div>
 
-        <div className="result">
+        <div className="footer">
         </div>
       </div>
     );
