@@ -4,8 +4,16 @@ body {
 }
 
 .drawArea {
-  width: 1000px;
-  height: 1000px;
+  width: 800px;
+  height: 800px;
+  border: 2px solid black;
+  border-radius: 10px;
+  float: left;
+  cursor: crosshair;
+}
+.drawArea2 {
+  width: 400px;
+  height: 400px;
   border: 2px solid black;
   border-radius: 10px;
   float: left;

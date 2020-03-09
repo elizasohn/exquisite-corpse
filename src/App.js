@@ -5,6 +5,13 @@ import ReactDOM from "react-dom";
 import Drawing from "./components/Drawing";
 import { connect } from "react-redux";
 
+// class Drawing {
+//   constructor() {
+//     this.lines = [];
+//     this.drawArea = n
+//   }
+// }
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -20,6 +27,10 @@ class App extends React.Component {
     this.handleMouseMove = this.handleMouseMove.bind(this);
     this.handleMouseUp = this.handleMouseUp.bind(this);
     this.undoLine = this.undoLine.bind(this);
+
+  }
+
+  attachEventsToDrawArea(drawArea) {
 
   }
 
@@ -171,23 +182,23 @@ class App extends React.Component {
       console.log(e);
       })
       }
-     >Get Image</button> */}
-        <button onClick={() => this.handleColorChange("black")}>Black</button>
-        <button onClick={() => this.handleColorChange("red")}>Red</button>
-        <button onClick={() => this.handleColorChange("orange")}>Orange</button>
-        <button onClick={() => this.handleColorChange("yellow")}>Yellow</button>
-        <button onClick={() => this.handleColorChange("green")}>Green</button>
-        <button onClick={() => this.handleColorChange("blue")}>Blue</button>
-        <button onClick={() => this.handleColorChange("purple")}>Purple</button>
-        <button onClick={() => this.handleColorChange("pink")}>Pink</button>
-        <button onClick={() => this.handleColorChange("white")}>Erase</button>
-        <button onClick={() => this.undoLine()}>Undo</button>
-        <button onClick={() => this.reset()}>Reset</button>
-        <button onClick={() => this.handleStrokeChange(8)}>Small</button>
-        <button onClick={() => this.handleStrokeChange(16)}>Medium</button>
-        <button onClick={() => this.handleStrokeChange(24)}>Large</button>
-        // <button id="showDrawing">Show Drawing</button>
-
+       >Get Image</button> */}
+        <div className="toolbar">
+          <button onClick={() => this.handleColorChange("black")}>Black</button>
+          <button onClick={() => this.handleColorChange("red")}>Red</button>
+          <button onClick={() => this.handleColorChange("orange")}>Orange</button>
+          <button onClick={() => this.handleColorChange("yellow")}>Yellow</button>
+          <button onClick={() => this.handleColorChange("green")}>Green</button>
+          <button onClick={() => this.handleColorChange("blue")}>Blue</button>
+          <button onClick={() => this.handleColorChange("purple")}>Purple</button>
+          <button onClick={() => this.handleColorChange("pink")}>Pink</button>
+          <button onClick={() => this.handleColorChange("white")}>Erase</button>
+          <button onClick={() => this.undoLine()}>Undo</button>
+          <button onClick={() => this.reset()}>Reset</button>
+          <button onClick={() => this.handleStrokeChange(8)}>Small</button>
+          <button onClick={() => this.handleStrokeChange(16)}>Medium</button>
+          <button onClick={() => this.handleStrokeChange(24)}>Large</button>
+          </div>
         <div
           className="drawArea"
           ref="drawArea"
@@ -196,6 +207,7 @@ class App extends React.Component {
         >
           <Drawing lines={this.state.lines} />
         </div>
+
         <div className="result">
         </div>
       </div>
