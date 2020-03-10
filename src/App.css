@@ -3,27 +3,27 @@ body {
   margin: 20px;
 }
 
-/* .container {
-  text-align: center;
-} */
 .drawArea {
   width: 800px;
-  height: 800px;
+  height: 600px;
   border: 2px solid black;
   border-radius: 10px;
   cursor: crosshair;
   z-index: -1;
   position: absolute;
-  top: -200px;
+  top: 0px;
   bottom: 0;
 }
 .drawArea2 {
-  width: 400px;
-  height: 400px;
+  width: 800px;
+  height: 600px;
   border: 2px solid black;
   border-radius: 10px;
-  float: left;
   cursor: crosshair;
+  z-index: -1;
+  position: absolute;
+  top: 600px;
+  bottom: 0;
 }
 
 .path {
@@ -43,8 +43,7 @@ body {
   position: absolute;
   width: 100%;
   z-index: 1;
-  padding-top: 100px;
-  padding-bottom: 100px;
+  padding: 50px;
   background-color: lightgray;
   top: 0px;
 }
@@ -53,7 +52,7 @@ body {
   position: absolute;
   width: 100%;
   z-index: 1;
-  height: 200px;
+  padding: 200px;
   background-color: lightgray;
   bottom: 0px;
 }
