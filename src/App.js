@@ -230,6 +230,8 @@ class App extends React.Component {
           <button className="lg" onClick={() => this.handleStrokeChange(32)}>.</button>
         </div>
         //drawing section
+        <div className="blank">
+        </div>
         <DrawArea
           className="drawArea"
           ref="drawArea"
