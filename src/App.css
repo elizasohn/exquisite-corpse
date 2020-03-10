@@ -2,6 +2,7 @@ body {
   font: 14px "Century Gothic", Futura, sans-serif;
   margin: 20px;
   background-color: lightgray;
+  text-align: center;
 }
 
 /* .container {
@@ -63,10 +64,72 @@ body {
   height: 200px;
   background-color: lightgray;
   bottom: 0px;
+  padding-top: 50px;
 }
 
 DrawArea {
   position: absolute;
   margin: 100px;
   top: -400px;
+}
+
+button {
+  border-radius: 50%;
+  /* border: 2px solid black; */
+  /* padding: 20px; */
+  display: inline-block;
+  height: 60px;
+  width: 60px;
+  margin: 2px;
+  box-shadow: 1px 1px 3px black;
+}
+.black {
+  background-color: black;
+}
+
+.red {
+  background-color: red;
+}
+
+.orange {
+  background-color: orange;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.green {
+  background-color: green;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.purple {
+  background-color: purple;
+}
+
+.pink {
+  background-color: pink;
+}
+
+.sm {
+  height: 20px;
+  width: 20px;
+  margin-left: 5px;
+  background-color: black;
+}
+.md {
+  height: 30px;
+  width: 30px;
+  margin-left: 5px;
+  background-color: black;
+}
+.lg {
+  height: 40px;
+  width: 40px;
+  margin-left: 5px;
+  background-color: black;
 }

@@ -210,20 +210,24 @@ class App extends React.Component {
       }
        >Get Image</button> */}
         <div className="toolbar">
-          <button onClick={() => this.handleColorChange("black")}>Black</button>
-          <button onClick={() => this.handleColorChange("red")}>Red</button>
-          <button onClick={() => this.handleColorChange("orange")}>Orange</button>
-          <button onClick={() => this.handleColorChange("yellow")}>Yellow</button>
-          <button onClick={() => this.handleColorChange("green")}>Green</button>
-          <button onClick={() => this.handleColorChange("blue")}>Blue</button>
-          <button onClick={() => this.handleColorChange("purple")}>Purple</button>
-          <button onClick={() => this.handleColorChange("pink")}>Pink</button>
-          <button onClick={() => this.handleColorChange("white")}>Erase</button>
-          <button onClick={() => this.undoLine()}>Undo</button>
-          <button onClick={() => this.reset()}>Reset</button>
-          <button onClick={() => this.handleStrokeChange(8)}>Small</button>
-          <button onClick={() => this.handleStrokeChange(16)}>Medium</button>
-          <button onClick={() => this.handleStrokeChange(24)}>Large</button>
+          <div className="colors">
+            <button className="black" onClick={() => this.handleColorChange("black")}></button>
+            <button className="red" onClick={() => this.handleColorChange("red")}></button>
+            <button className="orange" onClick={() => this.handleColorChange("orange")}></button>
+            <button className="yellow" onClick={() => this.handleColorChange("yellow")}></button>
+            <button className="green" onClick={() => this.handleColorChange("green")}></button>
+            <button className="blue" onClick={() => this.handleColorChange("blue")}></button>
+            <button className="purple" onClick={() => this.handleColorChange("purple")}></button>
+            <button className="pink" onClick={() => this.handleColorChange("pink")}></button>
+          </div>
+
+            <button onClick={() => this.handleColorChange("white")}>Erase</button>
+            <button onClick={() => this.undoLine()}>Undo</button>
+            <button onClick={() => this.reset()}>Reset</button>
+
+          <button className="sm" onClick={() => this.handleStrokeChange(8)}>.</button>
+          <button className="md" onClick={() => this.handleStrokeChange(16)}>.</button>
+          <button className="lg" onClick={() => this.handleStrokeChange(32)}>.</button>
         </div>
         //drawing section
         <DrawArea
