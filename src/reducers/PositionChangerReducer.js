@@ -1,10 +1,10 @@
 export default (state = initialState, action) => {
     console.log("in: " + action);
     switch (action.type) {
-      case "CHANGE_STROKE":
+      case "CHANGE_POSITION":
       const newState = Object.assign({}, state);
-      newState.stroke = action.stroke;
-      console.log(newState.stroke)
+      newState.position = action.position;
+      console.log(newState.position)
       return newState;
       default:
         return state;
