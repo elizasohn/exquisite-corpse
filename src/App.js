@@ -255,6 +255,7 @@ class App extends React.Component {
         <div className="toolbar">
           <div className="colors">
             <button className="black" onClick={() => this.handleColorChange("black")}></button>
+            <button className="brown" onClick={() => this.handleColorChange("#754400")}></button>
             <button className="red" onClick={() => this.handleColorChange("red")}></button>
             <button className="orange" onClick={() => this.handleColorChange("orange")}></button>
             <button className="yellow" onClick={() => this.handleColorChange("yellow")}></button>
