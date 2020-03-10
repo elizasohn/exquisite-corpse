@@ -8,14 +8,14 @@ body {
   display: flex;
   justify-content: center;
 }
-.blank {
+/* .blank {
   position: absolute;
-  top: 250px;
+  top: 280px;
   height: 100px;
   width: 100%;
-  z-index: 1;
+  z-index: 1; */
   /* padding: 200px; */
-}
+
 /* .container {
   text-align: center;
 } */
@@ -89,7 +89,7 @@ button {
 }
 
 .brown {
-  background-color: brown;
+  background-color: #754400;
 }
 
 .red {

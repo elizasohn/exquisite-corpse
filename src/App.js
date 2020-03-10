@@ -8,7 +8,7 @@ import styled from "styled-components";
 
 const DrawArea = styled.div`
   position: absolute;
-  top: ${(props) => props.borderOffset || "290px"};
+  top: ${(props) => props.borderOffset || "260px"};
   background-color: white;
   width: 800px;
   height: 900px;
@@ -31,10 +31,11 @@ const Footer = styled.div`
 
 const Blocker = styled.div`
   position: absolute;
-  top: 200px;
-  height: 100px;
+  top: 270px;
+  height: 30px;
   width: 100%;
   z-index: 1;
+  visibility: hidden;
   `;
 
 
@@ -47,7 +48,7 @@ class App extends React.Component {
       isDrawing: false,
       borderOffset: "300px",
       footerOffset: "600px",
-      player: 0,
+      player: 0, 
     };
 
     this.handleColorChange = this.handleColorChange.bind(this);
@@ -141,7 +142,7 @@ class App extends React.Component {
       newFooterOffset = "600px";
       newLines = this.state.lines;
       break;
-      case (1): newBorderOffset = "-300px";
+      case (1): newBorderOffset = "-290px";
       newPlayer = 2;
       newFooterOffset = "600px";
       newLines = this.state.lines;
