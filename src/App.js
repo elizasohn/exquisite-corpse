@@ -5,12 +5,7 @@ import Drawing from "./components/Drawing";
 import { connect } from "react-redux";
 import styled from "styled-components";
 
-// class Drawing {
-//   constructor() {
-//     this.lines = [];
-//     this.drawArea = n
-//   }
-// }
+
 const DrawArea = styled.div`
   position: absolute;
   top: ${(props) => props.player2 ? "0px" : "-200px"};
@@ -21,6 +16,7 @@ const DrawArea = styled.div`
   border-radius: 10px;
   cursor: crosshair;
   z-index: -1;
+  align-items: center;
   `;
 
 class App extends React.Component {
@@ -30,7 +26,7 @@ class App extends React.Component {
     this.state = {
       lines: [],
       isDrawing: false,
-      player2: true
+      player2: false
     };
 
     this.handleColorChange = this.handleColorChange.bind(this);
@@ -113,6 +109,18 @@ class App extends React.Component {
   }
 
   handlePlayerChange() {
+    console.log("state changed: " + this.state.player2);
+    switch(this.state.player2) {
+      case (0) :
+
+      case (1):
+
+      case (2):
+
+      default:
+
+
+    }
     const newPlayerStatus = !this.state.player2;
     this.setState({player2: newPlayerStatus});
   }
@@ -232,7 +240,8 @@ class App extends React.Component {
         //drawing section
         <div className="blank">
         </div>
-        <DrawArea
+        <DrawArea 
+          player2={this.state.player2}
           className="drawArea"
           ref="drawArea"
           onMouseDown={this.handleMouseDown}
