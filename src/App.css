@@ -68,21 +68,11 @@ body {
   top: 0px;
 }
 
-.footer {
-  position: absolute;
-  width: 100%;
-  z-index: 1;
-  height: 200px;
-  background-color: lightgray;
-  bottom: 0px;
-  padding-top: 50px;
-}
-
-DrawArea {
+/* DrawArea {
   position: absolute;
   margin: 100px;
   top: -400px;
-}
+} */
 
 button {
   border-radius: 50%;

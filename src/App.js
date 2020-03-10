@@ -8,15 +8,35 @@ import styled from "styled-components";
 
 const DrawArea = styled.div`
   position: absolute;
-  top: ${(props) => props.borderOffset || "300px"};
+  top: ${(props) => props.borderOffset || "290px"};
   background-color: white;
   width: 800px;
-  height: 800px;
+  height: 900px;
   border-radius: 10px;
   cursor: crosshair;
   z-index: -1;
   align-items: center;
   `;
+
+const Footer = styled.div`
+  position: absolute;
+  top: ${(props) => props.footerOffset || "600px"};
+  width: 100%;
+  z-index: 1;
+  height: 1000px;
+  background-color: lightgray;
+  bottom: 0px;
+  padding-top: 50px;
+  `;
+
+const Blocker = styled.div`
+  position: absolute;
+  top: 200px;
+  height: 100px;
+  width: 100%;
+  z-index: 1;
+  `;
+
 
 class App extends React.Component {
   constructor(props) {
@@ -26,6 +46,7 @@ class App extends React.Component {
       lines: [],
       isDrawing: false,
       borderOffset: "300px",
+      footerOffset: "600px",
       player: 0,
     };
 
@@ -111,25 +132,26 @@ class App extends React.Component {
   handlePlayerChange() {
     let newBorderOffset;
     let newPlayer;
+    let newFooterOffset;
     console.log("state changed: " + this.state.player);
     switch(this.state.player) {
-      case (0) : newBorderOffset = "-200px";
+      case (0) : newBorderOffset = "0px";
       newPlayer = 1;
+      newFooterOffset = "600px";
       break;
-
-      case (1): newBorderOffset = "-400px"
+      case (1): newBorderOffset = "-300px";
       newPlayer = 2;
+      newFooterOffset = "600px";
       break;
-
-      // case (2): 
-
-      default: newBorderOffset = "300px"
+      case (2): newBorderOffset = "-600px";
+      newFooterOffset = "1200px";
+      newPlayer = 3;
+      default: newBorderOffset = "280px";
+      newFooterOffset = "1200px";
       newPlayer = 0;
       break;
-
-
     }
-    this.setState({borderOffset: newBorderOffset, player: newPlayer});
+    this.setState({borderOffset: newBorderOffset, player: newPlayer, footerOffset: newFooterOffset});
   }
 
   undoLine() {
@@ -244,8 +266,8 @@ class App extends React.Component {
           <button className="lg" onClick={() => this.handleStrokeChange(32)}>.</button>
         </div>
         //drawing section
-        <div className="blank">
-        </div>
+        <Blocker>
+        </Blocker>
         <DrawArea 
           borderOffset={this.state.borderOffset}
           className="drawArea"
@@ -256,9 +278,10 @@ class App extends React.Component {
           <Drawing lines={this.state.lines} />
         </DrawArea>
         //footer
-        <div className="footer">
+        <Footer
+          footerOffset={this.state.footerOffset}>
           <button onClick={this.handlePlayerChange} player={this.state.player}>Next Player</button>
-        </div>
+        </Footer>
       </div>
           // <DrawingPad
           // color={this.props.color}
