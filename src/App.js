@@ -39,8 +39,16 @@ class App extends React.Component {
     this.handleMouseMove = this.handleMouseMove.bind(this);
     this.handleMouseUp = this.handleMouseUp.bind(this);
     this.handlePlayerChange = this.handlePlayerChange.bind(this);
-
-  }
+}
+  // handleChangeDrawArea(drawArea) {
+  //   this.setState(prevState => {
+  //     const nextDrawArea = (this.state.drawArea + 1);
+  //     return {
+  //     lines: [],
+  //     isDrawing: true,
+  //     drawArea: nextDrawArea,
+  //   };
+  // });
 
   componentDidMount() {
     document.addEventListener("mouseup", this.handleMouseUp);
@@ -81,7 +89,7 @@ class App extends React.Component {
       return {
         color: this.props.color,
         stroke: this.props.stroke,
-        lines: safeLines,
+        lines: safeLines
       };
     });
   }
@@ -110,12 +118,15 @@ class App extends React.Component {
   }
 
   undoLine() {
-    if (this.state.lines === [] ) {
+    console.log(this.state);
+
+    if (this.state.lines1 === [] ) {
       return;
     }
 
     this.setState(prevState => {
-      const safeLines = [...prevState.lines];
+      const newState = {...prevState}
+      const safeLines = [...newState.lines1];
       safeLines.pop();
       return {
         color: this.props.color,
@@ -136,7 +147,7 @@ class App extends React.Component {
       return {
         color: this.props.color,
         stroke: this.props.stroke,
-        lines: safeLines,
+        lines: safeLines
       }
     });
   }
@@ -227,6 +238,12 @@ class App extends React.Component {
           <button onClick={this.handlePlayerChange} player2={this.state.player2}>Next Player</button>
         </div>
       </div>
+          // <DrawingPad
+          // color={this.props.color}
+          // stroke={this.props.stroke}
+          // lines={this.state.lines1}
+          // />
+
     );
   }
 }

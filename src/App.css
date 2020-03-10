@@ -10,22 +10,27 @@ body {
 /* .drawArea {
   background-color: white;
   width: 800px;
-  height: 800px;
+  height: 600px;
   border: 2px solid black;
   border-radius: 10px;
   cursor: crosshair;
   z-index: -1;
+<<<<<<< HEAD
   /* position: absolute; */
   /* top: -200px; */
   /* bottom: 0;
-} */ 
+} */
+
 .drawArea2 {
-  width: 400px;
-  height: 400px;
+  width: 800px;
+  height: 600px;
   border: 2px solid black;
   border-radius: 10px;
-  float: left;
   cursor: crosshair;
+  z-index: -1;
+  position: absolute;
+  top: 600px;
+  bottom: 0;
 }
 
 .path {
