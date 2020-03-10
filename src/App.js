@@ -1,32 +1,28 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import ReactDOM from "react-dom";
-import Drawing from "./components/Drawing";
+// import Drawing from "./components/Drawing";
 import { connect } from "react-redux";
+import DrawingPad from './components/DrawingPad';
 
-// class Drawing {
-//   constructor() {
-//     this.lines = [];
-//     this.drawArea = n
-//   }
-// }
 
 class App extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      lines: [],
+      lines1: [],
+      lines2: [],
+      lines3: [],
       isDrawing: false,
       drawArea: 0,
     };
 
-    this.handleColorChange = this.handleColorChange.bind(this);
-    this.handleStrokeChange = this.handleStrokeChange.bind(this);
-    this.handleMouseDown = this.handleMouseDown.bind(this);
-    this.handleMouseMove = this.handleMouseMove.bind(this);
-    this.handleMouseUp = this.handleMouseUp.bind(this);
+    // this.handleColorChange = this.handleColorChange.bind(this);
+    // this.handleStrokeChange = this.handleStrokeChange.bind(this);
+    // this.handleMouseDown = this.handleMouseDown.bind(this);
+    // this.handleMouseMove = this.handleMouseMove.bind(this);
+    // this.handleMouseUp = this.handleMouseUp.bind(this);
 
   }
 
@@ -52,45 +48,45 @@ class App extends React.Component {
     document.removeEventListener("mouseup", this.handleMouseUp);
   }
 
-  handleMouseDown(mouseEvent) {
-    if (mouseEvent.button != 0) {
-      return;
-    }
+  // handleMouseDown(mouseEvent) {
+  //   if (mouseEvent.button != 0) {
+  //     return;
+  //   }
 
-    const point = this.relativeCoordinatesForEvent(mouseEvent);
+  //   const point = this.relativeCoordinatesForEvent(mouseEvent);
 
-    this.setState(prevState => ({
-      lines: [...prevState.lines, { color: this.props.color, stroke: this.props.stroke, points: [point] }],
-      isDrawing: true
-    }));
-  }
+  //   this.setState(prevState => ({
+  //     lines: [...prevState.lines, { color: this.props.color, stroke: this.props.stroke, points: [point] }],
+  //     isDrawing: true
+  //   }));
+  // }
 
-  handleMouseMove(mouseEvent) {
-    if (!this.state.isDrawing) {
-      return;
-    }
+  // handleMouseMove(mouseEvent) {
+  //   if (!this.state.isDrawing) {
+  //     return;
+  //   }
 
-    const point = this.relativeCoordinatesForEvent(mouseEvent);
+  //   const point = this.relativeCoordinatesForEvent(mouseEvent);
 
-    this.setState(prevState => {
-      const safeLines = [...prevState.lines];
-      safeLines[safeLines.length - 1].points = [
-        ...safeLines[safeLines.length - 1].points
-      ];
-      safeLines[safeLines.length - 1].points.push(point);
-      console.log(safeLines);
+  //   this.setState(prevState => {
+  //     const safeLines = [...prevState.lines];
+  //     safeLines[safeLines.length - 1].points = [
+  //       ...safeLines[safeLines.length - 1].points
+  //     ];
+  //     safeLines[safeLines.length - 1].points.push(point);
+  //     console.log(safeLines);
 
-      return {
-        color: this.props.color,
-        stroke: this.props.stroke,
-        lines: safeLines
-      };
-    });
-  }
+  //     return {
+  //       color: this.props.color,
+  //       stroke: this.props.stroke,
+  //       lines: safeLines
+  //     };
+  //   });
+  // }
 
-  handleMouseUp() {
-    this.setState({ isDrawing: false });
-  }
+  // handleMouseUp() {
+  //   this.setState({ isDrawing: false });
+  // }
 
   handleColorChange(color) {
     this.props.dispatch({
@@ -107,44 +103,44 @@ class App extends React.Component {
   }
 
   undoLine() {
-    if (this.state.lines === [] ) {
+    console.log(this.state);
+    
+    if (this.state.lines1 === [] ) {
       return;
     }
 
     this.setState(prevState => {
-      const safeLines = [...prevState.lines];
+      const newState = {...prevState}
+      const safeLines = [...newState.lines1];
       safeLines.pop();
-      return {
-        color: this.props.color,
-        stroke: this.props.stroke,
-        lines: safeLines
-      }
+      newState.lines1 = safeLines;
+      return newState;
     });
   }
 
-  reset() {
-    if (this.state.lines === [] ) {
-      return;
-    }
+  // reset() {
+  //   if (this.state.lines === [] ) {
+  //     return;
+  //   }
 
-    this.setState(prevState => {
-      const safeLines = [];
+  //   this.setState(prevState => {
+  //     const safeLines = [];
 
-      return {
-        color: this.props.color,
-        stroke: this.props.stroke,
-        lines: safeLines
-      }
-    });
-  }
+  //     return {
+  //       color: this.props.color,
+  //       stroke: this.props.stroke,
+  //       lines: safeLines
+  //     }
+  //   });
+  // }
 
-  relativeCoordinatesForEvent(mouseEvent) {
-    const boundingRect = this.refs.drawArea.getBoundingClientRect();
-    return {
-      x: mouseEvent.clientX - boundingRect.left,
-      y: mouseEvent.clientY - boundingRect.top
-    };
-  }
+  // relativeCoordinatesForEvent(mouseEvent) {
+  //   const boundingRect = this.refs.drawArea.getBoundingClientRect();
+  //   return {
+  //     x: mouseEvent.clientX - boundingRect.left,
+  //     y: mouseEvent.clientY - boundingRect.top
+  //   };
+  // }
 
   // exportImage(imageType) {
   //   return new Promise((resolve, reject) => {
@@ -212,10 +208,23 @@ class App extends React.Component {
         <div
           className="drawArea"
           ref="drawArea"
-          onMouseDown={this.handleMouseDown}
-          onMouseMove={this.handleMouseMove}
         >
-          <Drawing lines={this.state.lines} />
+          <DrawingPad 
+          color={this.props.color}
+          stroke={this.props.stroke} 
+          lines={this.state.lines1}
+          />
+        </div>
+        <div
+          className="drawArea2"
+          ref="drawArea2"
+          // onMouseDown={this.handleMouseDown}
+          // onMouseMove={this.handleMouseMove}
+        >
+          <DrawingPad
+          color={this.props.color}
+          stroke={this.props.stroke}
+          lines={this.state.lines2} />
         </div>
 
         <div className="footer">
@@ -230,7 +239,8 @@ ReactDOM.render(<App />, document.getElementById("root"));
 
 const mapStateToProps = state => ({
   color: state.colorChangerReducer.color,
-  stroke: state.strokeChangerReducer.stroke
+  stroke: state.strokeChangerReducer.stroke,
+  
 });
 
 export default connect(mapStateToProps)(App);
