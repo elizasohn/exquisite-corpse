@@ -30,7 +30,7 @@ class App extends React.Component {
     this.state = {
       lines: [],
       isDrawing: false,
-      player2: false
+      player2: true
     };
 
     this.handleColorChange = this.handleColorChange.bind(this);
@@ -120,13 +120,13 @@ class App extends React.Component {
   undoLine() {
     console.log(this.state);
 
-    if (this.state.lines1 === [] ) {
+    if (this.state.lines === [] ) {
       return;
     }
 
     this.setState(prevState => {
       const newState = {...prevState}
-      const safeLines = [...newState.lines1];
+      const safeLines = [...newState.lines];
       safeLines.pop();
       return {
         color: this.props.color,
@@ -224,7 +224,8 @@ class App extends React.Component {
           <button onClick={() => this.handleStrokeChange(8)}>Small</button>
           <button onClick={() => this.handleStrokeChange(16)}>Medium</button>
           <button onClick={() => this.handleStrokeChange(24)}>Large</button>
-          </div>
+        </div>
+        //drawing section
         <DrawArea
           className="drawArea"
           ref="drawArea"
@@ -233,7 +234,7 @@ class App extends React.Component {
         >
           <Drawing lines={this.state.lines} />
         </DrawArea>
-
+        //footer
         <div className="footer">
           <button onClick={this.handlePlayerChange} player2={this.state.player2}>Next Player</button>
         </div>

@@ -13,5 +13,4 @@ const initialState = {
   color: "black",
   stroke: 16,
   drawing: [],
-  position: '0px',
 };
