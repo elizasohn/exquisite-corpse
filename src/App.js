@@ -8,11 +8,10 @@ import styled from "styled-components";
 
 const DrawArea = styled.div`
   position: absolute;
-  top: ${(props) => props.player2 ? "0px" : "-200px"};
+  top: ${(props) => props.borderOffset || "300px"};
   background-color: white;
   width: 800px;
   height: 800px;
-  border: 2px solid black;
   border-radius: 10px;
   cursor: crosshair;
   z-index: -1;
@@ -26,7 +25,8 @@ class App extends React.Component {
     this.state = {
       lines: [],
       isDrawing: false,
-      player2: false
+      borderOffset: "300px",
+      player: 0,
     };
 
     this.handleColorChange = this.handleColorChange.bind(this);
@@ -109,25 +109,31 @@ class App extends React.Component {
   }
 
   handlePlayerChange() {
-    console.log("state changed: " + this.state.player2);
-    switch(this.state.player2) {
-      case (0) :
+    let newBorderOffset;
+    let newPlayer;
+    console.log("state changed: " + this.state.player);
+    switch(this.state.player) {
+      case (0) : newBorderOffset = "-200px";
+      newPlayer = 1;
+      break;
 
-      case (1):
+      case (1): newBorderOffset = "-400px"
+      newPlayer = 2;
+      break;
 
-      case (2):
+      // case (2): 
 
-      default:
+      default: newBorderOffset = "300px"
+      newPlayer = 0;
+      break;
 
 
     }
-    const newPlayerStatus = !this.state.player2;
-    this.setState({player2: newPlayerStatus});
+    this.setState({borderOffset: newBorderOffset, player: newPlayer});
   }
 
   undoLine() {
     console.log(this.state);
-
     if (this.state.lines === [] ) {
       return;
     }
@@ -241,7 +247,7 @@ class App extends React.Component {
         <div className="blank">
         </div>
         <DrawArea 
-          player2={this.state.player2}
+          borderOffset={this.state.borderOffset}
           className="drawArea"
           ref="drawArea"
           onMouseDown={this.handleMouseDown}
@@ -251,7 +257,7 @@ class App extends React.Component {
         </DrawArea>
         //footer
         <div className="footer">
-          <button onClick={this.handlePlayerChange} player2={this.state.player2}>Next Player</button>
+          <button onClick={this.handlePlayerChange} player={this.state.player}>Next Player</button>
         </div>
       </div>
           // <DrawingPad
