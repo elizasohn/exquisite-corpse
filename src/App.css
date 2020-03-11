@@ -9,7 +9,7 @@ body {
   justify-content: center;
 }
 * {
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 h2 {
@@ -33,12 +33,14 @@ h2 {
   z-index: 1;
   justify-content: center;
   padding-top: 50px;
+  padding-bottom: 40px;
   /* top: 0; */
 }
 
 .toolbar {
   width: 100%;
   z-index: 1;
+  padding-bottom: 30px;
 }
 .drawArea2 {
   width: 800px;
@@ -72,8 +74,8 @@ button {
   border: px solid black;
   /* padding: 20px; */
   display: inline-block;
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
   margin: 2px;
   box-shadow: 0px 1px 3px black;
 }
@@ -119,22 +121,22 @@ button {
 }
 
 .sm {
-  height: 20px;
-  width: 20px;
+  height: 10px;
+  width: 10px;
   margin-left: 5px;
   background-color: black;
 }
 
 .md {
-  height: 30px;
-  width: 30px;
+  height: 16px;
+  width: 16px;
   margin-left: 5px;
   background-color: black;
 }
 
 .lg {
-  height: 40px;
-  width: 40px;
+  height: 32px;
+  width: 32px;
   margin-left: 5px;
   background-color: black;
 }
