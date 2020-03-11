@@ -8,6 +8,15 @@ body {
   display: flex;
   justify-content: center;
 }
+
+/* h2 {
+  font: 20px "Century Gothic", Futura, sans-serif;
+  color: black;
+  margin: 20px;
+  background-color: lightgray;
+  text-align: center;
+  z-index: 2;
+} */
 /* .blank {
   position: absolute;
   top: 280px;
@@ -80,6 +89,13 @@ button {
   box-shadow: 0px 1px 3px black;
 }
 
+.toolbar {
+  margin: 5px;
+}
+.colors {
+  margin-bottom: 10px;
+}
+
 .black {
   background-color: black;
 }
@@ -138,4 +154,14 @@ button {
 }
 
 .footerButton {
+}
+
+.headerdude {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  font-size: 30px;
+  z-index: 2;
+  margin: 5px;
+  justify-content: center;
 }

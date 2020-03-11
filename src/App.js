@@ -4,6 +4,7 @@ import ReactDOM from "react-dom";
 import Drawing from "./components/Drawing";
 import { connect } from "react-redux";
 import styled from "styled-components";
+import Header from "./components/Header";
 
 
 const DrawArea = styled.div`
@@ -35,7 +36,7 @@ const Blocker = styled.div`
   height: 30px;
   width: 100%;
   z-index: 1;
-  visibility: hidden;
+  visibility: in-line block;
   `;
 
 
@@ -248,6 +249,9 @@ class App extends React.Component {
   render() {
     return (
       <div className="container">
+      <div className="headerdude">
+        <Header/>
+      </div>
       {/* <button onClick={() => this.drawArea.current.innerHTML
       .exportSvg()
       .then(data => {
