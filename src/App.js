@@ -138,6 +138,7 @@ class App extends React.Component {
     let newFooterOffset;
     let newLines;
     let newText;
+    let newButtonText;
     console.log("state changed: " + this.state.player);
     switch(this.state.player) {
       case (0) : 
@@ -146,6 +147,7 @@ class App extends React.Component {
       newFooterOffset = "600px";
       newLines = this.state.lines;
       newText = "Player 2";
+      newButtonText = "Next Player";
       break;
       case (1): 
       newBorderOffset = "-300px";
@@ -153,6 +155,7 @@ class App extends React.Component {
       newFooterOffset = "600px";
       newLines = this.state.lines;
       newText = "Player 3";
+      newButtonText = "Show Drawing";
       break;
       case (2): 
       newBorderOffset = "280px";
@@ -160,6 +163,7 @@ class App extends React.Component {
       newFooterOffset = "1200px";
       newLines = this.state.lines;
       newText = "Final Drawing";
+      newButtonText = "Start Over";
       break;
 
       default: newBorderOffset = "280px";
@@ -167,9 +171,10 @@ class App extends React.Component {
       newPlayer = 0;
       newLines = [];
       newText = "Player 1";
+      newButtonText = "Next Player";
       break;
     }
-    this.setState({borderOffset: newBorderOffset, player: newPlayer, footerOffset: newFooterOffset, lines: newLines, text: newText});
+    this.setState({borderOffset: newBorderOffset, player: newPlayer, footerOffset: newFooterOffset, lines: newLines, text: newText, buttonText: newButtonText});
   }
 
   undoLine() {
