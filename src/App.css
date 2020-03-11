@@ -68,22 +68,18 @@ body {
   top: 0px;
 }
 
-/* DrawArea {
-  position: absolute;
-  margin: 100px;
-  top: -400px;
-} */
-
+/* Buttons Styling  */
 button {
   border-radius: 50%;
-  /* border: 2px solid black; */
+  border: px solid black;
   /* padding: 20px; */
   display: inline-block;
   height: 60px;
   width: 60px;
   margin: 2px;
-  box-shadow: 1px 1px 3px black;
+  box-shadow: 0px 1px 3px black;
 }
+
 .black {
   background-color: black;
 }
@@ -126,15 +122,21 @@ button {
   margin-left: 5px;
   background-color: black;
 }
+
 .md {
   height: 30px;
   width: 30px;
   margin-left: 5px;
   background-color: black;
 }
+
 .lg {
   height: 40px;
   width: 40px;
   margin-left: 5px;
   background-color: black;
+}
+
+.footerButton {
+  border: 2px solid black;
 }

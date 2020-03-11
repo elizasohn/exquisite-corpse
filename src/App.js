@@ -60,16 +60,6 @@ class App extends React.Component {
     this.handleMouseUp = this.handleMouseUp.bind(this);
     this.handlePlayerChange = this.handlePlayerChange.bind(this);
 }
-  // handleChangeDrawArea(drawArea) {
-  //   this.setState(prevState => {
-  //     const nextDrawArea = (this.state.drawArea + 1);
-  //     return {
-  //     lines: [],
-  //     isDrawing: true,
-  //     drawArea: nextDrawArea,
-  //   };
-  // });
-
   componentDidMount() {
     document.addEventListener("mouseup", this.handleMouseUp);
   }
@@ -280,14 +270,14 @@ class App extends React.Component {
             <button className="purple" onClick={() => this.handleColorChange("purple")}></button>
             <button className="pink" onClick={() => this.handleColorChange("pink")}></button>
           </div>
-
+          <div className="tools">
             <button onClick={() => this.handleColorChange("white")}>Erase</button>
             <button onClick={() => this.undoLine()}>Undo</button>
             <button onClick={() => this.reset()}>Reset</button>
-
-          <button className="sm" onClick={() => this.handleStrokeChange(8)}>.</button>
-          <button className="md" onClick={() => this.handleStrokeChange(16)}>.</button>
-          <button className="lg" onClick={() => this.handleStrokeChange(32)}>.</button>
+            <button className="sm" onClick={() => this.handleStrokeChange(8)}>.</button>
+            <button className="md" onClick={() => this.handleStrokeChange(16)}>.</button>
+            <button className="lg" onClick={() => this.handleStrokeChange(32)}>.</button>
+          </div>
         </div>
         //drawing section
         <Blocker>
@@ -305,7 +295,7 @@ class App extends React.Component {
         <Footer
           footerOffset={this.state.footerOffset}>
           <p>{this.state.text}</p>
-          <button onClick={this.handlePlayerChange} player={this.state.player}>{this.state.buttonText}</button>
+          <button className="footerButton" onClick={this.handlePlayerChange} player={this.state.player}>{this.state.buttonText}</button>
         </Footer>
       </div>
           // <DrawingPad
