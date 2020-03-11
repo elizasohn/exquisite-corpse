@@ -248,31 +248,32 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="container">
-      <div className="headerdude">
-        <Header/>
-      </div>
+      <React.Fragment>
       {/* <button onClick={() => this.drawArea.current.innerHTML
       .exportSvg()
       .then(data => {
-      console.log(data);
+        console.log(data);
       })
       .catch(e => {
-      console.log(e);
+        console.log(e);
       })
-      }
-       >Get Image</button> */}
-        <div className="toolbar">
-          <div className="colors">
-            <button className="black" onClick={() => this.handleColorChange("black")}></button>
-            <button className="brown" onClick={() => this.handleColorChange("#754400")}></button>
-            <button className="red" onClick={() => this.handleColorChange("red")}></button>
-            <button className="orange" onClick={() => this.handleColorChange("orange")}></button>
-            <button className="yellow" onClick={() => this.handleColorChange("yellow")}></button>
-            <button className="green" onClick={() => this.handleColorChange("green")}></button>
-            <button className="blue" onClick={() => this.handleColorChange("blue")}></button>
-            <button className="purple" onClick={() => this.handleColorChange("purple")}></button>
-            <button className="pink" onClick={() => this.handleColorChange("pink")}></button>
+    }
+  >Get Image</button> */}
+    <div className="head">
+      <div className="headerdude">
+        <Header/>
+      </div>
+       <div className="toolbar">
+        <div className="colors">
+          <button className="black" onClick={() => this.handleColorChange("black")}></button>
+          <button className="brown" onClick={() => this.handleColorChange("#754400")}></button>
+          <button className="red" onClick={() => this.handleColorChange("red")}></button>
+          <button className="orange" onClick={() => this.handleColorChange("orange")}></button>
+          <button className="yellow" onClick={() => this.handleColorChange("yellow")}></button>
+          <button className="green" onClick={() => this.handleColorChange("green")}></button>
+          <button className="blue" onClick={() => this.handleColorChange("blue")}></button>
+          <button className="purple" onClick={() => this.handleColorChange("purple")}></button>            
+          <button className="pink" onClick={() => this.handleColorChange("pink")}></button>
           </div>
           <div className="tools">
             <button onClick={() => this.handleColorChange("white")}>Erase</button>
@@ -283,7 +284,10 @@ class App extends React.Component {
             <button className="lg" onClick={() => this.handleStrokeChange(32)}>.</button>
           </div>
         </div>
-        //drawing section
+      </div>
+      
+        {/* drawing section  */}
+        <div className="container">
         <Blocker>
         </Blocker>
         <DrawArea 
@@ -295,18 +299,15 @@ class App extends React.Component {
         >
           <Drawing lines={this.state.lines} />
         </DrawArea>
-        //footer
+        {/* footer */}
         <Footer
           footerOffset={this.state.footerOffset}>
           <p>{this.state.text}</p>
           <button className="footerButton" onClick={this.handlePlayerChange} player={this.state.player}>{this.state.buttonText}</button>
         </Footer>
-      </div>
-          // <DrawingPad
-          // color={this.props.color}
-          // stroke={this.props.stroke}
-          // lines={this.state.lines1}
-          // />
+        </div>
+      </React.Fragment>
+
 
     );
   }
