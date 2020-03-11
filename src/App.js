@@ -49,6 +49,8 @@ class App extends React.Component {
       borderOffset: "300px",
       footerOffset: "600px",
       player: 0, 
+      text: "Player 1",
+      buttonText: "Next Player"
     };
 
     this.handleColorChange = this.handleColorChange.bind(this);
@@ -289,7 +291,8 @@ class App extends React.Component {
         //footer
         <Footer
           footerOffset={this.state.footerOffset}>
-          <button onClick={this.handlePlayerChange} player={this.state.player}>Next Player</button>
+          <p>{this.state.text}</p>
+          <button onClick={this.handlePlayerChange} player={this.state.player}>{this.state.buttonText}</button>
         </Footer>
       </div>
           // <DrawingPad
