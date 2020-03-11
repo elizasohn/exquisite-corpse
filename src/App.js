@@ -273,7 +273,7 @@ class App extends React.Component {
           <div className="tools">
             <button onClick={() => this.handleColorChange("white")}>Erase</button>
             <button onClick={() => this.undoLine()}>Undo</button>
-            <button onClick={() => this.reset()}>Reset</button>
+            {/* <button onClick={() => this.reset()}>Reset</button> */}
             <button className="sm" onClick={() => this.handleStrokeChange(8)}>.</button>
             <button className="md" onClick={() => this.handleStrokeChange(16)}>.</button>
             <button className="lg" onClick={() => this.handleStrokeChange(32)}>.</button>
