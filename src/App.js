@@ -137,31 +137,39 @@ class App extends React.Component {
     let newPlayer;
     let newFooterOffset;
     let newLines;
+    let newText;
     console.log("state changed: " + this.state.player);
     switch(this.state.player) {
-      case (0) : newBorderOffset = "0px";
+      case (0) : 
+      newBorderOffset = "0px";
       newPlayer = 1;
       newFooterOffset = "600px";
       newLines = this.state.lines;
+      newText = "Player 2";
       break;
-      case (1): newBorderOffset = "-290px";
+      case (1): 
+      newBorderOffset = "-300px";
       newPlayer = 2;
       newFooterOffset = "600px";
       newLines = this.state.lines;
+      newText = "Player 3";
       break;
-      case (2): newBorderOffset = "280px";
+      case (2): 
+      newBorderOffset = "280px";
       newPlayer = 4;
       newFooterOffset = "1200px";
       newLines = this.state.lines;
+      newText = "Final Drawing";
       break;
 
       default: newBorderOffset = "280px";
       newFooterOffset = "600px";
       newPlayer = 0;
       newLines = [];
+      newText = "Player 1";
       break;
     }
-    this.setState({borderOffset: newBorderOffset, player: newPlayer, footerOffset: newFooterOffset, lines: newLines});
+    this.setState({borderOffset: newBorderOffset, player: newPlayer, footerOffset: newFooterOffset, lines: newLines, text: newText});
   }
 
   undoLine() {
