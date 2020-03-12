@@ -24,7 +24,7 @@ const Footer = styled.div`
   top: ${(props) => props.footerOffset || "600px"};
   width: 100%;
   z-index: 1;
-  height: 1000px;
+  height: 800px;
   background-color: lightgray;
   bottom: 0px;
   padding-top: 20px;
@@ -32,7 +32,7 @@ const Footer = styled.div`
 
 const Blocker = styled.div`
   position: absolute;
-  top: 270px;
+  top: 260px;
   height: 30px;
   width: 100%;
   z-index: 2;
