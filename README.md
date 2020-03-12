@@ -2,7 +2,9 @@
 
 ### By Eliza Sohn
 
-Exquisite Corpse is
+Exquisite Corpse is a three person drawing game based off the original Surrealist game played on paper. Participants play by taking turns drawing sections of a body, and each individual's contribution is hidden to the other participants. The first player draws a head, then the second player adds a torso without seeing the head, then the third player draws the legs and feet without seeing the head or torso. Andre Breton believed that one way of unlocking psychic space is through games. It can be used as a means to probe the nature of collaboration, partnership, and unfettered creativity.
+
+Some sample creations made with this game:
 
 <img align="center" width="400" alt="exquisite corpse drawing" src="https://user-images.githubusercontent.com/56556859/76568816-e76bc000-646e-11ea-9470-b75342362b31.png">
 <img align="center" width="400" alt="exquisite corpse drawing" src="https://user-images.githubusercontent.com/56556859/76568824-ea66b080-646e-11ea-802f-42085b51a133.png">
