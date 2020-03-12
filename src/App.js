@@ -164,6 +164,7 @@ class App extends React.Component {
       newLines = [];
       newText = "Player 1";
       newButtonText = "Next Player";
+      window.scrollTo(0,0);
       break;
     }
     this.setState({borderOffset: newBorderOffset, player: newPlayer, footerOffset: newFooterOffset, lines: newLines, text: newText, buttonText: newButtonText});
