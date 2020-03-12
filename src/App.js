@@ -27,7 +27,7 @@ const Footer = styled.div`
   height: 1000px;
   background-color: lightgray;
   bottom: 0px;
-  padding-top: 50px;
+  padding-top: 20px;
   `;
 
 const Blocker = styled.div`
@@ -35,8 +35,8 @@ const Blocker = styled.div`
   top: 270px;
   height: 30px;
   width: 100%;
-  z-index: 1;
-  visibility: in-line block;
+  z-index: 2;
+  visibility: in-line;
   `;
 
 
@@ -279,7 +279,7 @@ class App extends React.Component {
             <button onClick={() => this.handleColorChange("white")}>Erase</button>
             <button onClick={() => this.undoLine()}>Undo</button>
             {/* <button onClick={() => this.reset()}>Reset</button> */}
-            <button className="sm" onClick={() => this.handleStrokeChange(8)}>.</button>
+            <button className="sm" onClick={() => this.handleStrokeChange(8)}></button>
             <button className="md" onClick={() => this.handleStrokeChange(16)}>.</button>
             <button className="lg" onClick={() => this.handleStrokeChange(32)}>.</button>
           </div>
@@ -300,7 +300,7 @@ class App extends React.Component {
           <Drawing lines={this.state.lines} />
         </DrawArea>
         {/* footer */}
-        <Footer
+        <Footer className="footer"
           footerOffset={this.state.footerOffset}>
           <p>{this.state.text}</p>
           <button className="footerButton" onClick={this.handlePlayerChange} player={this.state.player}>{this.state.buttonText}</button>
