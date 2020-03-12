@@ -13,6 +13,6 @@ export default (state = initialState, action) => {
 
   const initialState = {
     color: "black",
-    stroke: 16,
+    stroke: 8,
     drawing: [],
   };
