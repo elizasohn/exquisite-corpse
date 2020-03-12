@@ -65,6 +65,7 @@ h2 {
 .drawing {
   width: 100%;
   height: 100%;
+  cursor:url(./pencilsm.png), auto;
 }
 
 
