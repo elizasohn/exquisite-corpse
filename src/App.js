@@ -39,7 +39,6 @@ const Blocker = styled.div`
   visibility: in-line;
   `;
 
-
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -157,7 +156,6 @@ class App extends React.Component {
       newButtonText = "Start Over";
       window.scrollTo(0,260);
       break;
-
       default: newBorderOffset = "280px";
       newFooterOffset = "600px";
       newPlayer = 0;

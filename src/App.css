@@ -3,7 +3,7 @@ body {
   margin: 20px;
   background-color: lightgray;
   text-align: center;
-  cursor:url(./pointer.png), auto;
+  cursor:url(./pointer.png) 10 -30, auto;
 }
 .container {
   display: flex;
@@ -75,7 +75,7 @@ button {
 button:hover {
   border: 1px solid darkgray;
   box-shadow: 0px 1px 5px black;
-  cursor:url(./pointer.png), auto;
+  cursor:url(./pointer.png) 10 -30, auto;
 }
 
 .colors {
@@ -128,23 +128,22 @@ button:hover {
 
 }
 .sm {
-  height: 10px;
-  width: 10px;
+  height: 12px;
+  width: 12px;
   margin-left: 50px;
   background-color: black;
-  padding: 0;
 }
 
 .md {
-  height: 16px;
-  width: 16px;
+  height: 22px;
+  width: 22px;
   margin-left: 25px;
   background-color: black;
 }
 
 .lg {
-  height: 32px;
-  width: 32px;
+  height: 34px;
+  width: 34px;
   margin-left: 25px;
   background-color: black;
 }
