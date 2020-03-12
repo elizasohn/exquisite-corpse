@@ -76,7 +76,8 @@ button {
   display: inline-block;
   height: 40px;
   width: 40px;
-  margin: 2px;
+  margin: 4px;
+  padding: 2px;
   box-shadow: 0px 1px 3px black;
   text-align: center;
 }
@@ -147,6 +148,6 @@ button {
 }
 
 .footerButton {
-  height: 40px;
-  width: 40px;
+  height: 60px;
+  width: 60px;
 }
