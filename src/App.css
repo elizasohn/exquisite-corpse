@@ -3,6 +3,7 @@ body {
   margin: 20px;
   background-color: lightgray;
   text-align: center;
+  cursor:url(./pointer.png), auto;
 }
 .container {
   display: flex;
@@ -47,7 +48,6 @@ h2 {
   height: 600px;
   border: 2px solid black;
   border-radius: 10px;
-  cursor: crosshair;
   z-index: -1;
   position: absolute;
   top: 600px;
@@ -65,7 +65,7 @@ h2 {
 .drawing {
   width: 100%;
   height: 100%;
-  cursor:url(./pencilsm.png), auto;
+  cursor:url(./pencilsm.png) 0 20, auto;
 }
 
 
@@ -81,11 +81,13 @@ button {
   padding: 2px;
   box-shadow: 0px 1px 3px black;
   text-align: center;
+  outline: none;
 }
 
 button:hover {
   border: 1px solid darkgray;
   box-shadow: 0px 1px 5px black;
+  cursor:url(./pointer.png), auto;
 }
 
 .colors {
@@ -143,7 +145,6 @@ button:hover {
   margin-left: 50px;
   background-color: black;
   padding: 0;
-  line-height: 6px;
 }
 
 .md {
@@ -151,7 +152,6 @@ button:hover {
   width: 16px;
   margin-left: 25px;
   background-color: black;
-  line-height: 8px;
 }
 
 .lg {
@@ -159,7 +159,6 @@ button:hover {
   width: 32px;
   margin-left: 25px;
   background-color: black;
-  line-height: 8px;
 }
 
 .footerButton {
