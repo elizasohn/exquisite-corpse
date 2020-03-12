@@ -1,5 +1,5 @@
 # Exquisite Corpse
-https://dreamy-wescoff-a614cf.netlify.com
+http://www.onlyhalfkidding.com
 
 ### By Eliza Sohn
 
@@ -13,7 +13,7 @@ Some sample creations made with this game:
 
 ## Setup/Installation
 
-View the deployed site at [https://dreamy-wescoff-a614cf.netlify.com](https://dreamy-wescoff-a614cf.netlify.com/)
+View the deployed site at [https://www.onlyhalfkidding.com](https://www.onlyhalfkidding.com/)
 
 Alternatively:
 - Clone project to desktop
