@@ -155,6 +155,7 @@ class App extends React.Component {
       newLines = this.state.lines;
       newText = "Final Drawing";
       newButtonText = "Start Over";
+      window.scrollTo(0,260);
       break;
 
       default: newBorderOffset = "280px";
