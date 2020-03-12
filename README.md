@@ -4,9 +4,9 @@
 
 Exquisite Corpse is
 
-<img width="871" alt="Screen Shot 2020-03-10 at 3 12 05 PM" src="https://user-images.githubusercontent.com/56556859/76568816-e76bc000-646e-11ea-9470-b75342362b31.png">
-<img width="836" alt="Screen Shot 2020-03-12 at 11 10 26 AM" src="https://user-images.githubusercontent.com/56556859/76568824-ea66b080-646e-11ea-802f-42085b51a133.png">
-<img width="829" alt="Screen Shot 2020-03-12 at 11 22 36 AM" src="https://user-images.githubusercontent.com/56556859/76568830-ec307400-646e-11ea-82d7-4b2e68667af9.png">
+<img width="400" alt="Screen Shot 2020-03-10 at 3 12 05 PM" src="https://user-images.githubusercontent.com/56556859/76568816-e76bc000-646e-11ea-9470-b75342362b31.png">
+<img width="400" alt="Screen Shot 2020-03-12 at 11 10 26 AM" src="https://user-images.githubusercontent.com/56556859/76568824-ea66b080-646e-11ea-802f-42085b51a133.png">
+<img width="400" alt="Screen Shot 2020-03-12 at 11 22 36 AM" src="https://user-images.githubusercontent.com/56556859/76568830-ec307400-646e-11ea-82d7-4b2e68667af9.png">
 
 ## Setup/Installation
 
