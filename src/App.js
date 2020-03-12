@@ -49,7 +49,7 @@ class App extends React.Component {
       isDrawing: false,
       borderOffset: "300px",
       footerOffset: "600px",
-      player: 0, 
+      player: 0,
       text: "Player 1",
       buttonText: "Next Player"
     };
@@ -132,7 +132,7 @@ class App extends React.Component {
     let newButtonText;
     console.log("state changed: " + this.state.player);
     switch(this.state.player) {
-      case (0) : 
+      case (0) :
       newBorderOffset = "0px";
       newPlayer = 1;
       newFooterOffset = "600px";
@@ -140,7 +140,7 @@ class App extends React.Component {
       newText = "Player 2";
       newButtonText = "Next Player";
       break;
-      case (1): 
+      case (1):
       newBorderOffset = "-300px";
       newPlayer = 2;
       newFooterOffset = "600px";
@@ -148,7 +148,7 @@ class App extends React.Component {
       newText = "Player 3";
       newButtonText = "Show Drawing";
       break;
-      case (2): 
+      case (2):
       newBorderOffset = "280px";
       newPlayer = 4;
       newFooterOffset = "1200px";
@@ -272,12 +272,12 @@ class App extends React.Component {
           <button className="yellow" onClick={() => this.handleColorChange("yellow")}></button>
           <button className="green" onClick={() => this.handleColorChange("green")}></button>
           <button className="blue" onClick={() => this.handleColorChange("blue")}></button>
-          <button className="purple" onClick={() => this.handleColorChange("purple")}></button>            
+          <button className="purple" onClick={() => this.handleColorChange("purple")}></button>
           <button className="pink" onClick={() => this.handleColorChange("pink")}></button>
           </div>
           <div className="tools">
-            <button onClick={() => this.handleColorChange("white")}>Erase</button>
-            <button onClick={() => this.undoLine()}>Undo</button>
+            <button className="erase" onClick={() => this.handleColorChange("white")}>Erase</button>
+            <button className="undo" onClick={() => this.undoLine()}>Undo</button>
             {/* <button onClick={() => this.reset()}>Reset</button> */}
             <button className="sm" onClick={() => this.handleStrokeChange(8)}></button>
             <button className="md" onClick={() => this.handleStrokeChange(16)}>.</button>
@@ -285,12 +285,12 @@ class App extends React.Component {
           </div>
         </div>
       </div>
-      
+
         {/* drawing section  */}
         <div className="container">
         <Blocker>
         </Blocker>
-        <DrawArea 
+        <DrawArea
           borderOffset={this.state.borderOffset}
           className="drawArea"
           ref="drawArea"

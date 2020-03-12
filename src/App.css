@@ -121,11 +121,20 @@ button {
 .pink {
   background-color: pink;
 }
+.erase {
+  height: 50px;
+  width: 50px;
+}
+.undo {
+  height: 50px;
+  width: 50px;
+  margin-left: 5px;
 
+}
 .sm {
   height: 10px;
   width: 10px;
-  margin-left: 5px;
+  margin-left: 20px;
   background-color: black;
   padding: 0;
   line-height: 6px;
