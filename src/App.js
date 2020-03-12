@@ -153,7 +153,7 @@ class App extends React.Component {
       newFooterOffset = "1200px";
       newLines = this.state.lines;
       newText = "Final Drawing";
-      newButtonText = "Start Over";
+      newButtonText = "New Game";
       window.scrollTo(0,260);
       break;
       default: newBorderOffset = "280px";
