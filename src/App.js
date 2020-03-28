@@ -5,6 +5,7 @@ import Drawing from "./components/Drawing";
 import { connect } from "react-redux";
 import styled from "styled-components";
 import Header from "./components/Header";
+import htmlToImage from 'html-to-image';
 
 
 const DrawArea = styled.div`
@@ -210,6 +211,15 @@ class App extends React.Component {
     };
   }
 
+  exportImage() {
+    htmlToImage.toJpeg(document.getElementById('drawArea'), { quality: 0.95 })
+  .then(function (dataUrl) {
+    var link = document.createElement('a');
+    link.download = 'drawing.jpeg';
+    link.href = dataUrl;
+    link.click();
+  });
+  };
   // exportImage(imageType) {
   //   return new Promise((resolve, reject) => {
   //     try {
@@ -291,6 +301,7 @@ class App extends React.Component {
         <Blocker>
         </Blocker>
         <DrawArea
+          id = "drawArea"
           borderOffset={this.state.borderOffset}
           className="drawArea"
           ref="drawArea"
@@ -304,6 +315,7 @@ class App extends React.Component {
           footerOffset={this.state.footerOffset}>
           <p>{this.state.text}</p>
           <button className="footerButton" onClick={this.handlePlayerChange} player={this.state.player}>{this.state.buttonText}</button>
+          <button className="getImageButton" onClick={this.exportImage}></button>
         </Footer>
         </div>
       </React.Fragment>
