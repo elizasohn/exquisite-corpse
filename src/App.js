@@ -315,7 +315,7 @@ class App extends React.Component {
           footerOffset={this.state.footerOffset}>
           <p>{this.state.text}</p>
           <button className="footerButton" onClick={this.handlePlayerChange} player={this.state.player}>{this.state.buttonText}</button>
-          <button className="getImageButton" onClick={this.exportImage}></button>
+          <button className="getImageButton" onClick={this.exportImage}>Save Image</button>
         </Footer>
         </div>
       </React.Fragment>
