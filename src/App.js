@@ -220,55 +220,10 @@ class App extends React.Component {
     link.click();
   });
   };
-  // exportImage(imageType) {
-  //   return new Promise((resolve, reject) => {
-  //     try {
-  //       console.log(document.getElementsByClassName("drawing")[0].innerHTML);
-  //       const drawArea = document.getElementsByClassName("drawing")[0];
-
-  //       const img = document.createElement('img');
-  //       img.src = `data:image/svg+xml;base64,${btoa(document.getElementsByClassName("drawing")[0].innerHTML)}`;
-
-  //       img.onload = () => {
-  //         const renderDrawArea = document.createElement('svg');
-  //         renderDrawArea.setAttribute('width', drawArea.offsetWidth);
-  //         console.log(drawArea.offsetWidth);
-  //         renderDrawArea.setAttribute('height', drawArea.offsetHeight);
-  //         renderDrawArea.getContext('2d').drawImage(img, 0, 0);
-
-  //         resolve(renderDrawArea.toDataURL(`image/${imageType}`));
-  //       };
-  //     } catch (e) {
-  //       reject(e);
-  //     }
-  //   });
-  // }
-
-  // exportSvg() {
-  //   return new Promise((resolve, reject) => {
-  //     try {
-  //       resolve(document.getElementsByClassName("drawing")[0].innerHTML);
-  //     }
-  //     } catch (e) {
-  //       reject(e);
-  //     }
-  //   });
-  // }
-
 
   render() {
     return (
       <React.Fragment>
-      {/* <button onClick={() => this.drawArea.current.innerHTML
-      .exportSvg()
-      .then(data => {
-        console.log(data);
-      })
-      .catch(e => {
-        console.log(e);
-      })
-    }
-  >Get Image</button> */}
     <div className="head">
       <div className="headerdude">
         <Header/>
