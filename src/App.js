@@ -5,7 +5,6 @@ import Drawing from "./components/Drawing";
 import { connect } from "react-redux";
 import styled from "styled-components";
 import Header from "./components/Header";
-import htmlToImage from 'html-to-image';
 import downloadSVG from "export-svg-with-styles";
 
 const options = {
@@ -16,6 +15,11 @@ const options = {
   filename: "Drawing.png"
   };
 
+const Button = styled.button`
+  display: ${(props) => props.getImageButton || "none" };
+  width: 60px;
+  height: 60px;
+`;
 const DrawArea = styled.div`
   position: absolute;
   top: ${(props) => props.borderOffset || "260px"};
@@ -59,7 +63,8 @@ class App extends React.Component {
       footerOffset: "600px",
       player: 0,
       text: "Player 1",
-      buttonText: "Next Player"
+      buttonText: "Next Player",
+      getImageButton: "none",
     };
 
     this.handleColorChange = this.handleColorChange.bind(this);
@@ -138,6 +143,7 @@ class App extends React.Component {
     let newLines;
     let newText;
     let newButtonText;
+    let newGetImageButton;
     console.log("state changed: " + this.state.player);
     switch(this.state.player) {
       case (0) :
@@ -147,6 +153,7 @@ class App extends React.Component {
       newLines = this.state.lines;
       newText = "Player 2";
       newButtonText = "Next Player";
+      newGetImageButton = "none";
       break;
       case (1):
       newBorderOffset = "-300px";
@@ -155,6 +162,7 @@ class App extends React.Component {
       newLines = this.state.lines;
       newText = "Player 3";
       newButtonText = "Show Drawing";
+      newGetImageButton = "none";
       break;
       case (2):
       newBorderOffset = "280px";
@@ -163,6 +171,7 @@ class App extends React.Component {
       newLines = this.state.lines;
       newText = "Final Drawing";
       newButtonText = "New Game";
+      newGetImageButton = "inline-block";
       window.scrollTo(0,260);
       break;
       default: newBorderOffset = "280px";
@@ -171,10 +180,11 @@ class App extends React.Component {
       newLines = [];
       newText = "Player 1";
       newButtonText = "Next Player";
+      newGetImageButton = "none";
       window.scrollTo(0,0);
       break;
     }
-    this.setState({borderOffset: newBorderOffset, player: newPlayer, footerOffset: newFooterOffset, lines: newLines, text: newText, buttonText: newButtonText});
+    this.setState({borderOffset: newBorderOffset, player: newPlayer, footerOffset: newFooterOffset, lines: newLines, text: newText, buttonText: newButtonText, getImageButton: newGetImageButton});
   }
 
   undoLine() {
@@ -273,7 +283,7 @@ class App extends React.Component {
           footerOffset={this.state.footerOffset}>
           <p>{this.state.text}</p>
           <button className="footerButton" onClick={this.handlePlayerChange} player={this.state.player}>{this.state.buttonText}</button>
-          <button className="getImageButton" onClick={this.exportImage}>Save Image</button>
+          <Button className="getImage" getImageButton={this.state.getImageButton} onClick={this.exportImage}>Save Image</Button>
         </Footer>
         </div>
       </React.Fragment>
