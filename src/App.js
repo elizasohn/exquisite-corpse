@@ -6,7 +6,15 @@ import { connect } from "react-redux";
 import styled from "styled-components";
 import Header from "./components/Header";
 import htmlToImage from 'html-to-image';
+import downloadSVG from "export-svg-with-styles";
 
+const options = {
+  width: 800,
+  height: 900,
+  backgroundColor: 'white',
+  svg: document.getElementById("drawArea"),
+  filename: "Drawing.png"
+  };
 
 const DrawArea = styled.div`
   position: absolute;
@@ -212,14 +220,9 @@ class App extends React.Component {
   }
 
   exportImage() {
-    htmlToImage.toJpeg(document.getElementById('drawArea'), { quality: 0.95 })
-  .then(function (dataUrl) {
-    var link = document.createElement('a');
-    link.download = 'drawing.jpeg';
-    link.href = dataUrl;
-    link.click();
-  });
+  downloadSVG(options);
   };
+
 
   render() {
     return (
@@ -252,7 +255,7 @@ class App extends React.Component {
       </div>
 
         {/* drawing section  */}
-        <div className="container">
+        <div className="container" id="container">
         <Blocker>
         </Blocker>
         <DrawArea
@@ -274,8 +277,6 @@ class App extends React.Component {
         </Footer>
         </div>
       </React.Fragment>
-
-
     );
   }
 }
